@@ -29,6 +29,7 @@
 		 - 11   "Country Road Atlas"               Secondary roads (already from zoom 9) and motorways/trunks/primaries from z7, secondaries from z9, tertiaries from z10. Show large scale landuse like forest and residential areas (already from zoom 10). Also all town names (already from zoom 9) and now all other locality names. Shows mountain peaks for orientation
 		 - 12   "Detailed Country Road Atlas"      Add all other public highways like road, unclassified, residential. Add tracks including track-type, and foot and bike paths. Also tag mountain peaks. Note that from this zoom level on ALL roads/tracks/paths are displayed, so it gives RELIABLE TRAVEL OVERVIEW!
 		 - 13   "Regional Driving. Good Overview"  Displays all driving as well as hiking connections. Show service, living street, pedestrian and footway highways. Include all area landuse.
+		 remove from here...
 		 - 14   "Local Driving", also "Hiking Map"
 		 - 15   "City Driving"                     Display all details of interest for this
 		 - 16   "Walking", "City Tour"             Outline and tag buildings
@@ -102,17 +103,6 @@
 		</string>
 	-->
 
-
-	<renderingProperty attr="showCycleRoutes" name="Show cycle routes" description="Show cycle routes (*cn_networks)"
-		type="boolean" possibleValues="" category="routes"/>
-	<renderingProperty attr="showMtbRoutes" name="Show MTB routes" description="Show mountain bike routes (*cn_networks)"
-		type="boolean" possibleValues="" category="routes"/>
-	<renderingProperty attr="hikingRoutesOSMC" name="Hiking symbol overlay" description="Render symbols of OSMC hiking traces"
-		type="string" possibleValues="walkingRoutesOSMC,walkingRoutesScopeOSMC" defaultValueDescription="disabled" category="routes"/>
-	<renderingProperty attr="alpineHiking" name="Alpine hiking view" description="Render paths according to SAC scale"
-		type="boolean" possibleValues="" category="routes"/>
-	<renderingProperty attr="horseRoutes" name="Horse routes" description="Horse routes"
-		type="boolean" possibleValues="" category="routes"/>
 
 	<renderingProperty attr="currentTrackColor" name="GPX color" description="Color of displayed GPX tracks"
 		type="string" possibleValues="red,orange,yellow,lightgreen,green,lightblue,blue,purple,translucent_red,translucent_orange,translucent_yellow,translucent_lightgreen,translucent_green,translucent_lightblue,translucent_blue,translucent_purple" defaultValueDescription="defaultTranslucentCyan"/>
@@ -282,7 +272,6 @@
 	<renderingConstant name="shaderColorNight" value="#334433"/>
 	<renderingConstant name="waterColorNight" value="#330099"/>
 	<renderingConstant name="builtUpAreasColorNight" value="#3b3b3b"/>
-	<renderingConstant name="buildingColorNight" value="#685454"/>
 
 	<renderingAttribute name="defaultColor">
 		<case noPolygons="true" attrColorValue="#00555555"/>
@@ -397,23 +386,6 @@
 	</renderingAttribute>
 	<renderingAttribute name="landuseConstructionStrokeColor">
 		<case attrColorValue="#ff6600"/>
-	</renderingAttribute>
-
-	<!-- Buildings -->
-	<renderingAttribute name="buildingColor">
-		<case nightMode="true" attrColorValue="$buildingColorNight"/>
-		<case attrColorValue="#bca9a9"/>
-	</renderingAttribute>
-	<renderingAttribute name="churchColor">
-		<case nightMode="true" attrColorValue="$buildingColorNight"/>
-		<case attrColorValue="#bca9a9"/>
-	</renderingAttribute>
-	<renderingAttribute name="stadiumColor">
-		<case nightMode="true" attrColorValue="$buildingColorNight"/>
-		<case attrColorValue="#bca9a9"/>
-	</renderingAttribute>
-	<renderingAttribute name="stadiumStrokeColor">
-		<case attrColorValue="$null"/>
 	</renderingAttribute>
 
 	<!-- Special interest areas which must remain distinguishable from open nature at night -->
@@ -533,30 +505,10 @@
 
 
 	<order>
-<!--		<filter appMode="bicycle" showCycleRoutes="true" tag="lcn_network" value="lcn" order="110"/>
-		<filter appMode="bicycle" showCycleRoutes="true" tag="rcn_network" value="rcn" order="111"/>
-		<filter appMode="bicycle" showCycleRoutes="true" tag="ncn_network" value="ncn" order="112"/>
-		<filter appMode="bicycle" showCycleRoutes="true" tag="icn_network" value="icn" order="113"/>
--->
 	</order>
 
 
 	<text>
-<!--		<group>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="lcn_network" value="lcn" nameTag="lcn_ref" textColor="$cyclewayColorDay" textOrder="22"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="rcn_network" value="rcn" nameTag="rcn_ref" textColor="$cyclewayColorDay" textOrder="21"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="ncn_network" value="ncn" nameTag="ncn_ref" textColor="$cyclewayColorDay" textOrder="20"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="icn_network" value="icn" nameTag="icn_ref" textColor="$cyclewayColorDay" textOrder="19"/>
-			<groupFilter appMode="bicycle" textOnPath="true" >
-				<filter minzoom="13" maxzoom="13" textDy="-11" textHaloRadius="1" textSize="10"/>
-				<filter minzoom="14" maxzoom="14" textDy="-12" textHaloRadius="1" textSize="11"/>
-				<filter minzoom="15" maxzoom="15" textDy="-14" textHaloRadius="1" textSize="13"/>
-				<filter minzoom="16" maxzoom="16" textDy="-16" textHaloRadius="1" textSize="15"/>
-				<filter minzoom="17" maxzoom="17" textDy="-20" textHaloRadius="1" textSize="18"/>
-				<filter minzoom="18" textDy="-25" textHaloRadius="1" textSize="21"/>
-			</groupFilter>
-		</group>
--->
 	</text>
 
 
@@ -945,9 +897,6 @@
 				<filter tag="highway" value="track"/>
 				<!-- color_5 needed for tracks/paths etc. to make them visible over showSurfaces/showSurfaceGrade etc. -->
 				<groupFilter color_5="$trackColor" color="$null">
-					<!-- In ped mode with Alpine Hiking, make tracks solid to more clearly distinguish them from paths (forum feedback of 2012-12-06) -->
-					<filter alpineHiking="true" appMode="pedestrian" pathEffect_5=""/>
-
 					<filter additional="tracktype=grade1" pathEffect_5=""/>
 					<filter additional="tracktype=grade2">
 						<filter minzoom="12" maxzoom="13" pathEffect_5="10_3"/>
@@ -991,48 +940,30 @@
 
 			<group>
 				<filter tag="highway" value="path"/>
-				<groupFilter alpineHiking="false" color_5="$pathColorDay" color="$null">
-					<filter additional="sac_scale=hiking" pathEffect_5="10_3"/>
-					<filter additional="sac_scale=mountain_hiking" pathEffect_5="5_5"/>
-					<filter additional="sac_scale=demanding_mountain_hiking" pathEffect_5="2_6"/>
-					<filter additional="sac_scale=alpine_hiking" pathEffect_5="2_6"/>
-					<filter additional="sac_scale=demanding_alpine_hiking" pathEffect_5="2_6"/>
-					<filter additional="sac_scale=difficult_alpine_hiking" pathEffect_5="2_6"/>
-					<filter pathEffect_5="4_2"/>
-					<groupFilter>
-						<filter appMode="pedestrian">
-							<filter minzoom="12" maxzoom="12" strokeWidth_5="1.4"/>
-							<filter minzoom="13" maxzoom="13" strokeWidth_5="1.8"/>
-							<filter minzoom="14" strokeWidth_5="2.5"/>
-						</filter>
-						<filter appMode="bicycle">
-							<filter minzoom="13" maxzoom="13" strokeWidth_5="0.7"/>
-							<filter minzoom="14" strokeWidth_5="1"/>
-						</filter>
-						<filter appMode="car">
-							<filter minzoom="14" strokeWidth_5="1"/>
-						</filter>
-						<filter minzoom="12" maxzoom="12" strokeWidth_5="0.7"/>
-						<filter minzoom="13" strokeWidth_5="1"/>
-					</groupFilter>
-					<groupFilter nightMode="true" color_5="$pathColorNight"/>
-				</groupFilter>
-				<groupFilter alpineHiking="true" color="$null">
-					<filter additional="sac_scale=hiking" color_5="$sacScaleColorT1" pathEffect_5="10_3"/>
-					<filter additional="sac_scale=mountain_hiking" color_5="$sacScaleColorT2" pathEffect_5=""/>
-					<filter additional="sac_scale=demanding_mountain_hiking" color_5="$sacScaleColorT3" pathEffect_5="10_3"/>
-					<filter additional="sac_scale=alpine_hiking" color_5="$sacScaleColorT4" pathEffect_5=""/>
-					<filter additional="sac_scale=demanding_alpine_hiking" color_5="$sacScaleColorT5" pathEffect_5="10_3"/>
-					<filter additional="sac_scale=difficult_alpine_hiking" color_5="$sacScaleColorT6" pathEffect_5="3_3"/>
-					<filter color_5="$pathColorDay" pathEffect_5="4_2">
-						<filter nightMode="true" color_5="$pathColorNight"/>
-					</filter>
-					<groupFilter>
+				<filter additional="sac_scale=hiking" pathEffect_5="10_3"/>
+				<filter additional="sac_scale=mountain_hiking" pathEffect_5="5_5"/>
+				<filter additional="sac_scale=demanding_mountain_hiking" pathEffect_5="2_6"/>
+				<filter additional="sac_scale=alpine_hiking" pathEffect_5="2_6"/>
+				<filter additional="sac_scale=demanding_alpine_hiking" pathEffect_5="2_6"/>
+				<filter additional="sac_scale=difficult_alpine_hiking" pathEffect_5="2_6"/>
+				<filter pathEffect_5="4_2"/>
+				<groupFilter>
+					<filter appMode="pedestrian">
 						<filter minzoom="12" maxzoom="12" strokeWidth_5="1.4"/>
 						<filter minzoom="13" maxzoom="13" strokeWidth_5="1.8"/>
 						<filter minzoom="14" strokeWidth_5="2.5"/>
-					</groupFilter>
+					</filter>
+					<filter appMode="bicycle">
+						<filter minzoom="13" maxzoom="13" strokeWidth_5="0.7"/>
+						<filter minzoom="14" strokeWidth_5="1"/>
+					</filter>
+					<filter appMode="car">
+						<filter minzoom="14" strokeWidth_5="1"/>
+					</filter>
+					<filter minzoom="12" maxzoom="12" strokeWidth_5="0.7"/>
+					<filter minzoom="13" strokeWidth_5="1"/>
 				</groupFilter>
+				<groupFilter nightMode="true" color_5="$pathColorNight"/>
 			</group>
 
 			<!-- Blocks footway/steps/bridleway/cycleway should be unchanged from default renderer -->
@@ -1074,23 +1005,6 @@
 				</groupFilter>
 			</group>
 
-		<!-- Alpine Hiking Mode: remove conflicting colors -->
-			<groupFilter alpineHiking="true">
-				<filter tag="highway" value="cycleway" color_5="$pathColorDay" pathEffect_5="4_2" color="$null">
-					<filter minzoom="12" maxzoom="12" strokeWidth_5="0.7"/>
-					<filter minzoom="13" strokeWidth_5="1"/>
-					<groupFilter nightMode="true" color_5="$pathColorNight"/>
-				</filter>
-				<filter tag="highway" value="footway" color_5="$pathColorDay" pathEffect_5="5_5" color="$null">
-					<filter minzoom="12" strokeWidth_5="1.2"/>
-					<groupFilter nightMode="true" color_5="$pathColorNight"/>
-				</filter>
-				<filter tag="highway" value="steps" color_5="$pathColorDay" pathEffect_5="2_2" color="$null">
-					<filter minzoom="14" strokeWidth_5="4"/>
-					<groupFilter nightMode="true" color_5="$pathColorNight"/>
-				</filter>
-			</groupFilter>
-		<!-- End Alpine Hiking Mode: remove conflicting colors -->
 
 			<!-- Bridges -->
 			<groupFilter layer="1">
@@ -1108,48 +1022,6 @@
 
 		<filter tag="highway" value="proposed" minzoom="12" maxzoom="13" color="$proposedRoadColor" strokeWidth="6" color_2="$proposedRoadColor2" strokeWidth_2="4" pathEffect_2="6_2"/>
 		<filter tag="highway" value="proposed" minzoom="14" color="$proposedRoadColor" strokeWidth="8" color_2="$proposedRoadColor2" strokeWidth_2="6" pathEffect_2="9_3"/>
-
-		<!-- cycleway=* unchanged from default renderer -->
-		<group>
-			<filter tag="cycleway" value="lane"/>
-			<filter tag="cycleway" value="track"/>
-			<filter tag="cycleway" value="opposite_lane"/>
-			<groupFilter appMode="bicycle" minzoom="14" color="$cyclewayColorDay" strokeWidth="2" pathEffect="8_4"/>
-		</group>
-
-		<!-- countour lines -->
-<!--		<group>
-			<filter contourLines="11" tag="contour" value="elevation" minzoom="11" color="$contourLineColor" strokeWidth="1"/>
-			<filter contourLines="12" tag="contour" value="elevation" minzoom="12" color="$contourLineColor" strokeWidth="1"/>
-			<filter contourLines="13" tag="contour" value="elevation" minzoom="13" color="$contourLineColor" strokeWidth="1"/>
-			<filter contourLines="14" tag="contour" value="elevation" minzoom="14" color="$contourLineColor" strokeWidth="1"/>
-			<filter contourLines="15" tag="contour" value="elevation" minzoom="15" color="$contourLineColor" strokeWidth="1"/>
-			<filter contourLines="16" tag="contour" value="elevation" minzoom="16" color="$contourLineColor" strokeWidth="1"/>
-			<groupFilter>
-				<filter additional="contourtype=10m" color="$contourLineColor" strokeWidth="1"/>
-				<filter additional="contourtype=20m" color="$contourLineColor" strokeWidth="1"/>
-				<filter additional="contourtype=50m" minzoom="16" color="$contourLineColor50m" strokeWidth="1.5"/>
-				<filter additional="contourtype=100m" color="$contourLineColor50m" strokeWidth="2"/>
-			</groupFilter>
-		</group>
--->
-
-		<!-- cycle routes -->
-<!--		<group>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="lcn_network" value="lcn" color="$cycleRoutelcnColor"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="rcn_network" value="rcn" color="$cycleRoutercnColor"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="ncn_network" value="ncn" color="$cycleRoutencnColor"/>
-			<filter appMode="bicycle" showCycleRoutes="true" tag="icn_network" value="icn" color="$cycleRouteicnColor"/>
-			<groupFilter cap="BUTT">
-				<filter minzoom="12" maxzoom="13" strokeWidth="9"/>
-				<filter minzoom="14" maxzoom="14" strokeWidth="10"/>
-				<filter minzoom="15" maxzoom="15" strokeWidth="12"/>
-				<filter minzoom="16" maxzoom="16" strokeWidth="15"/>
-				<filter minzoom="17" maxzoom="17" strokeWidth="19"/>
-				<filter minzoom="18" strokeWidth="25"/>
-			</groupFilter>
-		</group>
--->
 	</line>
 
 </renderingStyle>
