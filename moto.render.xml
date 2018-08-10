@@ -665,11 +665,6 @@
 					</filter>
 					<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
 
-				<!--    Use showAccess module from default renderer from now on:
-					<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/> 
-					<groupFilter minzoom="15" additional="access=private" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/>
-				-->
-
 				</groupFilter>
 			</group>
 
@@ -687,11 +682,6 @@
 						</groupFilter>
 					</filter>
 					<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
-
-				<!--    Use showAccess module from default renderer from now on:
-					<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/> 
-					<groupFilter minzoom="15" additional="access=private" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/>
-				-->
 
 				</groupFilter>
 			</group>
@@ -712,11 +702,6 @@
 						</groupFilter>
 					</filter>
 					<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
-
-				<!--    Use showAccess module from default renderer from now on:
-					<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="1:2" pathEffect_3="10_3"/> 
-					<groupFilter minzoom="15" additional="access=private" color_3="$accessPrivateColor" strokeWidth_3="1:2" pathEffect_3="10_3"/>
-				-->
 
 				</groupFilter>
 
