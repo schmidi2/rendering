@@ -199,6 +199,7 @@
 	<renderingConstant name="primaryRoadColor" value="#ff80a0"/>
 	<renderingConstant name="secondaryRoadColor" value="#ffd080"/>
 	<renderingConstant name="tertiaryRoadColor" value="#ffff80"/>
+	<renderingConstant name="unclassifiedRoadColor" value="#ff0000"/>
 
 	<!-- Dimmed road colors for car mode at night (80% Brightness) -->
 	<renderingConstant name="motorwayRoadColorDimmed" value="#c6cc26"/>
@@ -208,6 +209,7 @@
 	<renderingConstant name="primaryRoadColorDimmed" value="#cc6882"/>
 	<renderingConstant name="secondaryRoadColorDimmed" value="#cca568"/>
 	<renderingConstant name="tertiaryRoadColorDimmed" value="#cccc68"/>
+	<renderingConstant name="unclassifiedRoadColorDimmed" value="#7a0101"/>
 
 	<renderingAttribute name="residentialRoadColor">
 		<case attrColorValue="#ffffff">
@@ -651,6 +653,28 @@
 			<group>
 				<filter tag="highway" value="road"/>
 				<filter tag="highway" value="unclassified"/>
+				<groupFilter color="$unclassifiedRoadColor" shadowRadius=":1.5" shadowColor="$shadowColorDay" cap="ROUND">
+					<filter minzoom="12" maxzoom="12" strokeWidth="2" shadowColor="$shadowColorLowZoom"/>
+					<filter minzoom="13" maxzoom="13" strokeWidth="3" shadowColor="$shadowColorLowZoom"/>
+					<filter color_0="#000000">
+						<groupFilter layer="-1" pathEffect="4_4" cap="BUTT"/>
+						<!-- Bridges -->
+						<groupFilter layer="1" shadowRadius=":0" cap="SQUARE" cap_0="BUTT">
+							<groupFilter nightMode="true" color_0="#ffffff"/>
+						</groupFilter>
+					</filter>
+					<groupFilter nightMode="true" shadowColor="$shadowColorNight"/>
+
+				<!--    Use showAccess module from default renderer from now on:
+					<groupFilter minzoom="15" additional="access=no" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/> 
+					<groupFilter minzoom="15" additional="access=private" color_3="$accessPrivateColor" strokeWidth_3="2:3" pathEffect_3="10_3"/>
+				-->
+
+				</groupFilter>
+			</group>
+
+			<!-- Blocks roads/unclassified/residential and service/living-street/residential should be unchanged from default renderer -->
+			<group>
 				<filter tag="highway" value="residential"/>
 				<groupFilter color="$residentialRoadColor" shadowRadius=":1.5" shadowColor="$shadowColorDay" cap="ROUND">
 					<filter minzoom="12" maxzoom="12" strokeWidth="2" shadowColor="$shadowColorLowZoom"/>
