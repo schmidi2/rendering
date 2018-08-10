@@ -1,7 +1,7 @@
 <renderingStyle name="Moto" depends="default" defaultColor="#f1eae4" version="1">
 
-	<renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for motorbikes"
-		type="string" possibleValues="motorcycle"/>
+<!--	<renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for motorbikes"
+		type="string" possibleValues="motorcycle"/>-->
 
 	<!--
 	TOURING VIEW Renderer by Hardy Mueller, 2012-10-28 (Advanced version of the previous All-Purpose Renderer)
