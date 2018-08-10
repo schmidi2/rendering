@@ -441,59 +441,9 @@
 		<case attrColorValue="#734a08"/>
 	</renderingAttribute>
 
-	<!-- Parking areas -->
-	<renderingAttribute name="parkingColor">
-		<case nightMode="true" attrColorValue="#36455a"/>
-		<case attrColorValue="#f6eeb7"/>
-	</renderingAttribute>
-	<renderingAttribute name="parkingPrivateColor">
-		<case nightMode="true" attrColorValue="#7741536c"/>
-		<case attrColorValue="#77f6eeb7"/>
-	</renderingAttribute>
-	<renderingAttribute name="parkingCustomersColor">
-		<case nightMode="true" attrColorValue="#7741536c"/>
-		<case attrColorValue="#77f6eeb7"/>
-	</renderingAttribute>
-	<renderingAttribute name="bicycleParkingColor">
-		<case nightMode="true" attrColorValue="#36455a"/>
-		<case attrColorValue="#f6eeb7"/>
-	</renderingAttribute>
-
-
 	<!-- Text colors -->
 	<renderingConstant name="black" value="#000000"/>
 	<renderingConstant name="white" value="#ffffff"/>
-
-	 <renderingAttribute name="tertiaryTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-	<renderingAttribute name="residentialTextColor">
-		<case nightMode="true" attrColorValue="$white"/>
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-
-	<renderingAttribute name="residentialTextHaloColor">
-		<case attrColorValue="$residentialRoadColor"/>
-	</renderingAttribute>
-
-	<renderingAttribute name="pedestrianTextColor">
-		<case nightMode="true" attrColorValue="$white"/>
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-
-	<renderingAttribute name="serviceTextColor">
-		<case nightMode="true" attrColorValue="$white"/>
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-
-	<renderingAttribute name="serviceTextHaloColor">
-		<case nightMode="true" attrColorValue="#6f6f6f"/>
-		<case attrColorValue="#ececec"/>
-	</renderingAttribute>
-	<renderingAttribute name="serviceDrivewayTextHaloColor">
-		<case nightMode="true" attrColorValue="#6f6f6f"/>
-		<case attrColorValue="#ececec"/>
-	</renderingAttribute>
 
 	<renderingAttribute name="waterTextColor">
 		<case nightMode="true" attrColorValue="#8EAAEB"/>
@@ -523,6 +473,12 @@
 		<group>
 			<filter tag="highway" value="road"/>
 			<filter tag="highway" value="unclassified"/>
+			<groupFilter color="$unclassifiedRoadColor" color_2="$shadowColorDay" minzoom="12" strokeWidth_2=":1">
+				<filter nightMode="true" color_2="$shadowColorNight"/>
+			</groupFilter>
+		</group>
+
+		<group>
 			<filter tag="highway" value="residential"/>
 			<groupFilter color="$residentialRoadColor" color_2="$shadowColorDay" minzoom="12" strokeWidth_2=":1">
 				<filter nightMode="true" color_2="$shadowColorNight"/>
