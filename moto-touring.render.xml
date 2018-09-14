@@ -542,28 +542,6 @@
 	<renderingAttribute name="secondaryTextColor">
 		<case attrColorValue="$black"/>
 	</renderingAttribute>
-<!--
-	<renderingAttribute name="tertiaryTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-	<renderingAttribute name="unclassifiedTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-	<renderingAttribute name="residentialTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-	<renderingAttribute name="pedestrianTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-	<renderingAttribute name="serviceTextColor">
-		<case attrColorValue="$black"/>
-	</renderingAttribute>
-
-	<renderingAttribute name="railwayTextColor">
-		<case attrColorValue="#333333"/>
-	</renderingAttribute>
-	<renderingConstant name="railwayTextHaloColor" value="#aaffffff"/>
--->
 
 	<renderingAttribute name="boundaryColorInner">
 		<case minzoom="12" attrColorValue="#aa0002B4"/>
@@ -1093,57 +1071,7 @@
 				<case minzoom="18" textSize="19"/>
 			</apply>
 		</switch>
-		<switch minzoom="14" textHaloRadius="$textHaloRadiusDay" textColor="$tertiaryTextColor" textOnPath="true" textHaloColor="$tertiaryRoadColor" nameTag="">
-			<case tag="highway" value="tertiary" textOrder="94"/>
-			<case tag="area:highway" value="tertiary" textOrder="95" intersectsWith="any" textWrapWidth="25"/>
-			<case tag="highway" value="tertiary_link" textOrder="96"/>
-			<apply>
-				<case maxzoom="14" textSize="12"/>
-				<case maxzoom="15" textSize="13"/>
-				<case maxzoom="16" textSize="14"/>
-				<case maxzoom="17" textSize="16"/>
-				<case minzoom="18" textSize="18"/>
-			</apply>
-		</switch>
 
-		<switch minzoom="14">
-			<switch textColor="$unclassifiedTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$unclassifiedRoadColor">
-				<case tag="highway" value="unclassified" textOrder="122"/>
-			</switch>
-			<switch>
-				<switch textColor="$residentialTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$residentialRoadColor">
-<!--					<case tag="highway" value="road" textOrder="120"/>-->
-					<case tag="area:highway" value="road" textWrapWidth="25" textOrder="121"/>
-					<case tag="area:highway" value="unclassified" intersectsWith="any" textWrapWidth="25" textOrder="123"/>
-					<case tag="highway" value="residential" textOrder="124"/>
-					<case tag="area:highway" value="residential" textOrder="125" textWrapWidth="25" intersectsWith="any"/>
-					<case tag="man_made" value="bridge" textOrder="125"/>
-				</switch>
-				<switch textColor="$serviceTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$serviceRoadColor">
-					<case tag="highway" value="service" textOrder="128"/>
-					<case tag="area:highway" value="service" textWrapWidth="25" textOrder="129"/>
-					<case tag="highway" value="living_street" textOrder="130"/>
-					<case tag="highway" value="escape" textOrder="130"/>
-				</switch>
-<!--				<switch textHaloRadius="$textHaloRadiusDay" textColor="$serviceTextColor" textHaloColor="$serviceTextHaloColor" textOrder="130">
-					<case tag="highway" value="rest_area"/>
-					<apply_if engine_v1="false" textDy="0"/>
-				</switch>
-				<case tag="highway" value="proposed" textColor="$serviceTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$serviceRoadColor" textOrder="253"/>-->
-			</switch>
-			<switch textColor="$pedestrianTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$pedestrianRoadColor" intersectionMargin="20">
-				<case tag="highway" value="pedestrian" textOrder="126"/>
-				<case tag="place" value="square" textOrder="63" textWrapWidth="25" intersectsWith="any"/>
-				<case tag="area:highway" value="pedestrian" textOrder="64" textWrapWidth="25" intersectsWith="any"/>
-			</switch>
-			<apply textOnPath="true" nameTag="">
-				<case maxzoom="14" textSize="12"/>
-				<case maxzoom="15" textSize="13"/>
-				<case maxzoom="16" textSize="14"/>
-				<case maxzoom="17" textSize="16"/>
-				<case minzoom="18" textSize="18"/>
-			</apply>
-		</switch>
 				<switch minzoom="12" textMinDistance="101" textOnPath="false" textColor="#00ffffff" textSize="11" textOrder="43">
 					<switch minzoom="12" textOrder="44">
 						<case tag="route_hiking" value="" nameTag="osmc_text" nameTag2="hiking_route_ref" textSize="13"/>
@@ -1505,28 +1433,6 @@
 					</apply>
 				</switch>
 
-		<switch minzoom="14" textColor="$railwayTextColor" textHaloRadius="$textHaloRadiusDay" textHaloColor="$white" textOrder="251">
-			<case tag="railway" value="rail"/>
-			<case tag="railway" value="tram"/>
-			<case minzoom="16" tag="railway" value="subway"/>
-			<case tag="railway" value="light_rail"/>
-			<case tag="railway" value="abandoned"/>
-			<case tag="railway" value="disused"/>
-			<case tag="railway" value="preserved"/>
-			<case tag="railway" value="narrow_gauge"/>
-			<case tag="railway" value="construction"/>
-			<case tag="railway" value="monorail"/>
-			<case tag="railway" value="funicular"/>
-			<case minzoom="17" tag="railway" value="miniature"/>
-			<apply nameTag="" textOnPath="true">
-				<case maxzoom="14" textSize="12"/>
-				<case maxzoom="15" textSize="13"/>
-				<case maxzoom="16" textSize="14"/>
-				<case maxzoom="17" textSize="16"/>
-				<case minzoom="18" textSize="18"/>
-			</apply>
-		</switch>
-
 		<switch minzoom="14">
 			<switch nameTag="">
 				<case tag="highway" value="raceway" textOrder="192"/>
@@ -1548,18 +1454,6 @@
 				<case maxzoom="17" textSize="16"/>
 				<case minzoom="18" textSize="18"/>
 			</apply_if>
-		</switch>
-		<switch minzoom="15" nameTag="" textOnPath="true">
-			<case tag="highway" value="footway" textOrder="190" textColor="#000000">
-			</case>
-			<case tag="area:highway" value="footway" textOrder="191" textColor="$pedestrianTextColor" textHaloColor="$pedestrianRoadColor"/>
-			<apply>
-				<case maxzoom="15" textSize="13"/>
-				<case maxzoom="16" textSize="14"/>
-				<case maxzoom="17" textSize="16"/>
-				<case minzoom="18" textSize="18"/>
-			</apply>
-			<apply textHaloRadius="$textHaloRadiusDay"/>
 		</switch>
 
 		<case minzoom="16" tag="man_made" value="reinforced_slope" color="#d6d6d6"/>
