@@ -223,16 +223,7 @@
 
 	<!-- Prefilter residential and remove death ends-->
 	<renderingAttribute name="residentialRoadColor">
-		<case additional="bridge=yes" attrColorValue="#eeeeee"/>
-		<case attrColorValue="#ffffff">
-			<apply_if additional="construction=yes" attrColorValue="#cccccc"/>
-		</case>
-	</renderingAttribute>
-	<renderingAttribute name="residentialRoadLowZoom1ShadowColor">
-		<case attrColorValue="#555555"/>
-	</renderingAttribute>
-	<renderingAttribute name="residentialRoadLowZoom2ShadowColor">
-		<case attrColorValue="#444444"/>
+		<case attrColorValue="#ff3f3f"/>
 	</renderingAttribute>
 	<renderingAttribute name="residentialRoadShadowColor">
 		<case attrColorValue="#333333"/>
@@ -2806,8 +2797,6 @@
 							<case tag="highway" value="residential" color="$residentialRoadColor" color__1="$residentialRoadColor"/>
 						</switch>
 						<apply cap="ROUND" color_0="#000000">
-							<case minzoom="13" maxzoom="13" strokeWidth="1:1" strokeWidth_3="1:1" shadowColor="$residentialRoadLowZoom2ShadowColor"/>
-							<case minzoom="14" maxzoom="14" strokeWidth="1.5:1.5" strokeWidth_3="1.5:1.5" shadowColor="$residentialRoadLowZoom2ShadowColor"/>
 							<switch>
 								<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5"/>
 								<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5" strokeWidth_3="4.5:4.5"/>
