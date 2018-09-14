@@ -3,8 +3,6 @@
 
 	<renderingProperty attr="appMode" name="Rendering mode" description="Map optimization for respective User Profile"
 		type="string" possibleValues="browse map,car,bicycle,pedestrian"/>
-	<renderingProperty attr="transportStops" name="Transport stops" description="Public transport stops"
-		type="boolean" possibleValues="" category="transport"/>
 	<renderingProperty attr="contourLines" name="Show contour lines" description="Select minimum zoom level to display in map if available. Separate contour file may be needed."
 		type="string" possibleValues="disabled,16,15,14,13,12,11" defaultValueDescription="default13" category="details"/>
 	<renderingProperty attr="horseRoutes" name="Horse routes" description="Horse routes"
@@ -746,8 +744,6 @@
 				<case tag="railway" value="yard" ignorePolygonAsPointArea="true"/>
 				<switch>
 					<case tag="railway" value="halt" ignorePolygonAsPointArea="true"/>
-					<case tag="railway" value="tram_stop" ignorePolygonAsPointArea="true"/>
-					<case tag="public_transport" value="platform" ignorePolygonAsPointArea="true"/>
 					<apply_if layer="-1" order="-1"/>
 				</switch>
 				
@@ -774,7 +770,6 @@
 				<switch>
 					<case tag="public_transport" value="platform"/>
 					<case tag="railway" value="halt"/>
-					<case tag="railway" value="tram_stop"/>
 					<case tag="railway" value="station" ignorePolygonArea="true"/>
 					<case tag="railway" value="yard" ignorePolygonArea="true"/>
 					<apply_if layer="-1" order="-1"/>
@@ -1607,15 +1602,6 @@
 					<apply_if engine_v1="false" textDy="0"/>
 				</switch>
 			</switch>
-			<switch minzoom="15" textColor="#000000" textHaloRadius="$textHaloRadiusDay" textHaloColor="#ffffff" textWrapWidth="20">
-				<case tag="amenity" value="bus_station" nameTag="" textBold="true" textOrder="30"/>
-				<case tag="public_transport" value="station" nameTag="" textBold="true" textOrder="30"/>
-				<case tag="highway" value="bus_stop" nameTag="" textOrder="73"/>
-				<case tag="public_transport" value="platform" nameTag="" textOrder="73"/>
-				<apply maxzoom="16" textSize="11"/>
-				<apply minzoom="17" textSize="12"/>
-				<apply_if engine_v1="true" minzoom="16" textDy="9"/>
-			</switch>
 
 			<switch minzoom="14" textColor="#000000" textHaloRadius="$textHaloRadiusDay" textHaloColor="#ffffff" textOrder="106">
 				<case tag="aerialway" value="cable_car"/>
@@ -1663,7 +1649,6 @@
 					</case>
 					<case minzoom="15" tag="waterway" value="waterfall" nameTag2="height" textWrapWidth="20" textOnPath="true" textOrder="217"/>
 					<case minzoom="16" tag="natural" value="spring" textWrapWidth="20" textOrder="214"/>
-					<case minzoom="17" tag="amenity" value="drinking_water" textWrapWidth="20" textOrder="214"/>
 					<case minzoom="18" tag="man_made" value="water_well"/>
 					<case minzoom="14" tag="waterway" value="dam" textWrapWidth="20" textOnPath="true" textOrder="207"/>
 					<case minzoom="16" tag="waterway" value="weir" textWrapWidth="20" textOnPath="true" textOrder="208"/>
@@ -1933,7 +1918,6 @@
 			<case additional="information=office" icon="information_office" shield="information_office_shield"/>
 			<case additional="information=audioguide" icon="information_audioguide" shield="information_audioguide_shield"/>
 			<case additional="information=board" icon="information_board" shield="information_board_shield"/>
-			<case additional="information=guidepost" icon="information_guidepost" shield="information_guidepost_shield"/>
 			<case additional="information=map" icon="information_map" shield="information_map_shield"/>
 			<case additional="information=terminal" icon="information_terminal" shield="information_terminal_shield"/>
 		</case>
@@ -2086,7 +2070,6 @@
 						<case minzoom="14" tag="barrier" value="lift_gate" icon="barrier_lift_gate" shield="topo_barrier_lift_gate_shield"/>
 						<case minzoom="14" tag="barrier" value="swing_gate" icon="barrier_swing_gate" shield="topo_barrier_swing_gate_shield"/>
 						<case minzoom="14" tag="barrier" value="bump_gate" icon="barrier_bump_gate" shield="barrier_bump_gate_shield"/>
-	<!--					<case minzoom="14" tag="barrier" value="bus_trap" icon="barrier_bus_trap" shield="barrier_bus_trap_shield"/>-->
 						<case minzoom="14" tag="barrier" value="chain" icon="barrier_chain" shield="barrier_chain_shield"/>
 	<!--					<case minzoom="14" tag="barrier" value="height_restrictor" icon="barrier_height_restrictor" shield="barrier_height_restrictor_shield"/>-->
 						<case minzoom="14" tag="barrier" value="motorcycle_barrier" icon="barrier_motorcycle_barrier" shield="barrier_motorcycle_barrier_shield"/>
@@ -2145,17 +2128,6 @@
 				<case minzoom="19" icon="entrance_service" shield="barrier_entrance_small_shield"/>
 			</switch>
 			<apply iconOrder="129"/>
-		</switch>
-		<switch minzoom="15">
-			<case tag="highway" value="bus_stop"/>
-			<case tag="public_transport" value="platform"/>
-			<apply_if maxzoom="15" icon="topo_bus_stop_small" shield="topo_bus_stop_small_shield"/>
-			<apply_if minzoom="16" icon="topo_bus_stop" shield="topo_bus_stop_shield"/>
-		</switch>
-		<switch minzoom="14">
-			<case tag="amenity" value="bus_station"/>
-			<case tag="public_transport" value="station"/>
-			<apply icon="topo_bus_stop" shield="white_round_shield"/>
 		</switch>
 
 		<switch>
@@ -2537,10 +2509,6 @@
 						<case tag="railway" value="station"/>
 						<case tag="aerialway" value="station"/>
 						<case tag="amenity" value="ferry_terminal"/>
-					</switch>
-					<case minzoom="11" tag="public_transport" value="station" color="#d4aaaa"/>
-					<switch minzoom="15" color="#bababa">
-						<case tag="public_transport" value="platform"/>
 					</switch>
 
 					<case minzoom="11" tag="amenity" value="prison" shader="prison" color_2="#aaaaaa" strokeWidth_2="1:1"/>
@@ -3197,12 +3165,8 @@
 		</switch>
 
 		<switch>
-			<case tag="public_transport" value="platform"/>
 			<case tag="railway" value="halt"/>
-			<case tag="railway" value="tram_stop"/>
-			<apply_if minzoom="16" color="#555555" color_2="#CCCCCC" strokeWidth="2:2" strokeWidth_2="1:1">
-				<apply_if minzoom="18" strokeWidth="3:3" strokeWidth_2="2:2"/>
-			</apply_if>
+			<apply_if minzoom="16" color="#555555" color_2="#CCCCCC" strokeWidth="2:2" strokeWidth_2="1:1"/>
 		</switch>
 
 		<case minzoom="12" tag="man_made" value="cutline" color="#ffffff" cap="ROUND">
