@@ -1982,19 +1982,6 @@
                     <case minzoom="11" tag="leisure" value="resort" color="#88A4E0A6" strokeWidth_2="1" color_2="#97CF99" />
                     <case minzoom="11" tag="natural" value="beach" shader="beach3" />
                     <case minzoom="11" tag="natural" value="sand" shader="topo_sand" />
-                    <switch minzoom="13">
-                        <!-- Special nature with shaders -->
-                        <case tag="natural" value="scree" />
-                        <case tag="geological" value="moraine" />
-                        <apply shader="scree" />
-                    </switch>
-                    <case minzoom="14" tag="natural" value="fell" shader="fell2" />
-                    <case minzoom="13" tag="natural" value="bare_rock" shader="topo_bare_rock" />
-                    <switch minzoom="14">
-                        <case tag="wood:lost" value="dead_wood" shader="topo_dead_wood" />
-                        <case tag="wood:lost" value="windfall" shader="topo_windfall" />
-                        <apply color_0="#fbfde6" />
-                    </switch>
                     <switch minzoom="6">
                         <case tag="natural" value="wood" />
                         <case tag="landuse" value="forest" />
@@ -2019,28 +2006,6 @@
                             <apply_if additional="wood:damage=windfall" shader="topo_windfall" color_0="#fbfde6" />
                             <apply_if additional="wood:damage=dead_wood" shader="topo_dead_wood" color_0="#fbfde6" />
                         </apply_if>
-                    </switch>
-                    <case minzoom="12" tag="natural" value="scrub">
-                        <apply_if maxzoom="13" color="#b3e3b5" />
-                        <apply_if minzoom="14" shader="topo_scrub" />
-                    </case>
-                    <case minzoom="10" tag="landuse" value="allotments" color="$landuseAllotmentsColor" color_2="#8fbda0" strokeWidth_2=":1">
-                        <case minzoom="14" shader="topo_allotments" />
-                    </case>
-                    <case minzoom="12" tag="landuse" value="orchard" color="#bbeca1" color_2="#499720">
-                        <case minzoom="14" shader="topo_orchard" />
-                    </case>
-                    <switch minzoom="6">
-                        <case tag="natural" value="grassland" />
-                        <case tag="landuse" value="meadow" />
-                        <case minzoom="12" tag="landuse" value="grassland" />
-                        <apply_if maxzoom="13" color="$grassColor" />
-                        <apply_if minzoom="14" shader="topo_grassland" />
-                    </switch>
-                    <switch minzoom="11">
-                        <case tag="landuse" value="grass" />
-                        <case tag="natural" value="heath" />
-                        <apply color="$grassColor" />
                     </switch>
                     <switch minzoom="4" tag="natural" value="glacier">
                         <case maxzoom="8" strokeWidth_2="1" />
@@ -2158,11 +2123,6 @@
                             <apply_if minzoom="15" shader="diagonal_gray_large_shader" />
                         </apply>
                     </switch>
-                    <switch minzoom="13">
-                        <case tag="power" value="plant" color="#bbbbbb" />
-                        <case tag="power" value="generator" color="#bbbbbb" />
-                        <case tag="power" value="substation" color="#bbbbbb" />
-                    </switch>
                     <case minzoom="16" tag="man_made" value="reinforced_slope" color="#d6d6d6" />
                     <switch minzoom="14" tag="man_made" value="bunker_silo">
                         <case moreDetailed="false" minzoom="15" />
@@ -2204,27 +2164,10 @@
                         <case tag="abandoned:aeroway" value="runway" color_2="#66333333" strokeWidth_2="1" shader="diagonal_gray_shader" />
                     </switch>
                     <case minzoom="18" tag="aeroway" value="helipad" color_2="#333333" strokeWidth_2="1" />
-                    <case minzoom="10" tag="natural" value="wetland">
-                        <case additional="wetland=tidalflat" shader="wetland_tidalflat" />
-                        <switch>
-                            <case additional="wetland=bog" shader="wetland_bog" />
-                            <case additional="wetland=marsh" shader="wetland_marsh" />
-                            <case additional="wetland=swamp" shader="wetland_swamp" />
-                            <case additional="wetland=reedbed" shader="wetland_reedbed" />
-                            <case additional="wetland=mangrove" shader="wetland_mangrove" />
-                            <case additional="wetland=wet_meadow" shader="wetland_wet_meadow" />
-                            <case additional="wetland=string_bog" shader="wetland_string_bog" />
-                            <case additional="wetland=saltmarsh" shader="wetland_saltmarsh" />
-                            <case additional="wetland=fen" shader="wetland_fen" />
-                            <case additional="wetland=palsa_bog" shader="wetland_palsa_bog" />
-                            <!--				<case additional="wetland=mud" shader="mud2"/>-->
-                            <case shader="wetland" />
-                        </switch>
-                        <apply_if minzoom="15" additional="intermittent=yes" strokeWidth_2="1" color_2="#7479ec" pathEffect_2="12_5" />
-                    </case>
+                    <case minzoom="10" tag="natural" value="wetland" shader="wetland_tidalflat" />
                     <switch>
-                        <case minzoom="13" tag="waterway" value="dam" strokeWidth_2="1:1" />
-                        <case minzoom="15" tag="waterway" value="weir" strokeWidth_2="1:1" />
+                        <case minzoom="10" tag="waterway" value="dam" strokeWidth_2="1:1" />
+                        <case minzoom="10" tag="waterway" value="weir" strokeWidth_2="1:1" />
                         <apply color="#33444444" color_2="#333333" />
                     </switch>
                 </switch>
@@ -2247,14 +2190,6 @@
                             <case minzoom="10" tag="landuse" value="basin" />
                             <apply color_2="$waterwayColor" strokeWidth_2="1" />
                         </switch>
-                    </switch>
-                    <switch>
-                        <case minzoom="15" tag="leisure" value="swimming_pool" />
-                        <case minzoom="15" tag="landuse" value="salt_pond" />
-                        <case minzoom="16" tag="amenity" value="fountain" />
-                        <case minzoom="16" tag="natural" value="hot_spring" />
-                        <case minzoom="16" tag="natural" value="geyser" />
-                        <apply color_2="#7479ec" strokeWidth_2="1.3:0" />
                     </switch>
                     <case minzoom="10" tag="waterway" value="dock" color_2="#aa8387d5" strokeWidth_2="3" />
                     <apply color="$waterColor" />
@@ -2359,53 +2294,51 @@
 200km  6
 100km  7
  50km  8
- 20km  9
+ 20km  9 Hauptstrassen
  10km 10
   5km 11
-  2km 12
+  2km 12 Unlassified
 -->
 
             <switch minzoom="8">
-				<case tag="highway" value="primary" color="$primaryRoadColor" shadowColor="$primaryRoadShadowColor" strokeWidth="0.4" cap="ROUND">
-					<apply_if minzoom="9" strokeWidth="1.3:1.3" />
+				<case tag="highway" value="primary" color="$primaryRoadColor" color_0="#000000" shadowColor="$primaryRoadShadowColor" strokeWidth="0.4" cap="ROUND">
+<!--					<apply_if minzoom="9" strokeWidth="1.3:1.3" />
 					<apply_if minzoom="10" strokeWidth="1.7:1.7" />
 					<apply_if minzoom="11" strokeWidth="1.8:1.8" />
 					<apply_if minzoom="12" strokeWidth="2:2" />
-					<apply_if minzoom="13" strokeWidth="2:2" strokeWidth_3="2:2" />
+					<apply_if minzoom="13" strokeWidth="2:2" strokeWidth_3="2:2" />-->
 				</case>
-				<case tag="highway" value="primary_link" color="$primaryRoadColor" shadowColor="$primaryRoadShadowColor" strokeWidth="1.1:1.1" cap="ROUND">
-					<apply_if minzoom="12" strokeWidth="1.4:1.4" />
-					<apply_if minzoom="13" strokeWidth="1.6:1.6" strokeWidth_3="1.6:1.6" />
+				<case tag="highway" value="primary_link" color="$primaryRoadColor" color_0="#000000" shadowColor="$primaryRoadShadowColor" strokeWidth="1.1:1.1" cap="ROUND">
+<!--					<apply_if minzoom="12" strokeWidth="1.4:1.4" />
+					<apply_if minzoom="13" strokeWidth="1.6:1.6" strokeWidth_3="1.6:1.6" />-->
 				</case>
-				<case tag="highway" value="secondary" color="$secondaryRoadColor" shadowColor="$secondaryRoadShadowColor" strokeWidth="1.1:1.1" cap="ROUND">
-					<apply_if minzoom="10" strokeWidth="1.3:1.3" />
+				<case tag="highway" value="secondary" color="$secondaryRoadColor" color_0="#000000" shadowColor="$secondaryRoadShadowColor" strokeWidth="1.1:1.1" cap="ROUND">
+<!--					<apply_if minzoom="10" strokeWidth="1.3:1.3" />
 					<apply_if minzoom="11" strokeWidth="1.5:1.5" />
 					<apply_if minzoom="12" strokeWidth="1.7:1.7" />
-					<apply_if minzoom="13" strokeWidth="1.7:1.7" strokeWidth_3="1.7:1.7" />
+					<apply_if minzoom="13" strokeWidth="1.7:1.7" strokeWidth_3="1.7:1.7" />-->
 				</case>
-				<case tag="highway" value="secondary_link" color="$secondaryRoadColor" shadowColor="$secondaryRoadShadowColor" strokeWidth="1:1" cap="ROUND">
-					<apply_if minzoom="12" strokeWidth="1.1:1.1" />
-					<apply_if minzoom="13" strokeWidth="1.2:1.2" strokeWidth_3="1.2:1.2" />
+				<case tag="highway" value="secondary_link" color="$secondaryRoadColor" color_0="#000000" shadowColor="$secondaryRoadShadowColor" strokeWidth="1:1" cap="ROUND">
+<!--					<apply_if minzoom="12" strokeWidth="1.1:1.1" />
+					<apply_if minzoom="13" strokeWidth="1.2:1.2" strokeWidth_3="1.2:1.2" />-->
 				</case>
 			</switch>
 
 
 			<switch minzoom="10">
-				<case tag="highway" value="unclassified" color="$unclassifiedRoadColor" color__1="$unclassifiedRoadColor" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" cap="ROUND">
-					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
+				<case tag="highway" value="unclassified" color="$unclassifiedRoadColor" color_0="#000000" shadowColor="$residentialRoadShadowColor" color__1="$unclassifiedRoadColor" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" cap="ROUND">
+<!--					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
 					<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5" strokeWidth_3="4.5:4.5" />
 					<case minzoom="17" maxzoom="17" strokeWidth="6:6" strokeWidth_3="6:6" />
 					<case minzoom="18" maxzoom="18" strokeWidth="9:9" strokeWidth_3="9:9" />
-					<case minzoom="19" strokeWidth="10.5:10.5" strokeWidth_3="10.5:10.5" />
-					<apply shadowColor="$residentialRoadShadowColor" />
+					<case minzoom="19" strokeWidth="10.5:10.5" strokeWidth_3="10.5:10.5" />-->
 				</case>
-				<case tag="highway" value="residential" color="$residentialRoadColor" color__1="$residentialRoadColor" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" cap="ROUND">
-					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
+				<case tag="highway" value="residential" color="$residentialRoadColor" color_0="#000000" shadowColor="$residentialRoadShadowColor" color__1="$residentialRoadColor" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" cap="ROUND">
+<!--					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
 					<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5" strokeWidth_3="4.5:4.5" />
 					<case minzoom="17" maxzoom="17" strokeWidth="6:6" strokeWidth_3="6:6" />
 					<case minzoom="18" maxzoom="18" strokeWidth="9:9" strokeWidth_3="9:9" />
-					<case minzoom="19" strokeWidth="10.5:10.5" strokeWidth_3="10.5:10.5" />
-					<apply shadowColor="$residentialRoadShadowColor" />
+					<case minzoom="19" strokeWidth="10.5:10.5" strokeWidth_3="10.5:10.5" />-->
 				</case>
 			</switch>
 
