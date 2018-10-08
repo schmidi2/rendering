@@ -2393,15 +2393,15 @@
 					<apply_if minzoom="13" strokeWidth="1.2:1.2" strokeWidth_3="1.2:1.2" />
 				</case>
 				<apply color="$secondaryRoadColor" shadowColor="$secondaryRoadShadowColor" cap="ROUND" />
-			<switch>
+			</switch>
 
 
 			<switch minzoom="10">
 				<case tag="highway" value="unclassified" color="$unclassifiedRoadColor" color__1="$unclassifiedRoadColor" />
 				<case tag="highway" value="residential" color="$residentialRoadColor" color__1="$residentialRoadColor" />
-			<switch>
+			</switch>
 
-		<switch>
+		</switch>
 
     </line>
 </renderingStyle>
