@@ -38,7 +38,6 @@
     <renderingAttribute name="shadowRendering">
         <!-- 0 - no shadow, 1 - one step, 2 - blur shadow, 3 - solid shadow -->
         <!-- next line ensures bridges stand out ok -->
-        <case minzoom="14" nightMode="false" attrIntValue="3" shadowColor="#969696" />
         <case minzoom="14" attrIntValue="3" shadowColor="#464646" />
         <case roadStyle="germanRoadAtlas" minzoom="6" maxzoom="13" attrIntValue="3" />
         <case roadStyle="americanRoadAtlas" minzoom="6" maxzoom="13" attrIntValue="3" />
@@ -46,9 +45,6 @@
         <case attrIntValue="0" />
     </renderingAttribute>
     <renderingAttribute name="route">
-        <!-- fluorescent: filter attrColorValue="#CCFF6600"/ -->
-        <!-- was badly visible on motorways: filter nightMode="false" attrColorValue="#960000FF"/ -->
-        <!-- color_3 used for turn arrows on the route -->
         <case color="#AAC51FFF" strokeWidth="12:8" color_3="#FFE601" strokeWidth_3="5:7" />
     </renderingAttribute>
     <renderingAttribute name="gpx">
@@ -263,10 +259,6 @@
     <renderingAttribute name="waterColor">
         <case attrColorValue="#7ad1ed" />
     </renderingAttribute>
-    <!--	<renderingAttribute name="waterStrokeColor">
-		<case nightMode="true" attrColorValue="#511db8"/>
-		<case attrColorValue="#4580cf"/>
-	</renderingAttribute>-->
     <renderingAttribute name="waterwayColor">
         <case attrColorValue="#1A7DC3" />
     </renderingAttribute>
@@ -1748,27 +1740,8 @@
             <case minzoom="12" tag="railway" value="station" />
             <case minzoom="13" tag="railway" value="yard" />
             <apply icon="topo_railway_station_small" iconVisibleSize="8" />
-            <!--			<apply_if additional="disused=yes" icon="railway_station_small_disused"/>
-			<apply_if additional="station=subway" icon="railway_station_subway_small"/>-->
         </switch>
-        <!--		<case minzoom="13" tag="abandoned:railway" value="station">
-			<case maxzoom="15" icon="railway_station_small_disused"/>
-			<case minzoom="16" icon="railway_station_disused" shield="white_gray_square_shield">
-				<apply_if nightMode="true" shield="gray_gray_square_shield"/>
-			</case>
-		</case>-->
         <switch minzoom="10" tag="aeroway" value="aerodrome">
-            <case additional="abandoned=yes">
-                <case minzoom="14" icon="topo_aerodrome_abandoned" shield="topo_aerodrome_abandoned_shield" iconOrder="100" />
-            </case>
-            <switch>
-                <case additional="iata" />
-                <!-- iata,icao and faa tags are used in basemap, but for regular maps we use artificial tag large_aerodrome=yes which is created when any of these three are present on aerodrome -->
-                <case additional="icao" />
-                <case additional="faa" />
-                <case additional="large_aerodrome" icon="topo_aerodrome" shield="topo_aerodrome_shield" iconOrder="71" />
-                <!-- artificial tag, see rendering_types.xml-->
-            </switch>
             <case minzoom="14" icon="topo_aerodrome" shield="topo_aerodrome_shield" iconOrder="100" />
         </switch>
         <case minzoom="14" tag="abandoned:aeroway" value="aerodrome">
@@ -1841,22 +1814,6 @@
                 <case minzoom="19" icon="entrance_service" shield="barrier_entrance_small_shield" />
             </switch>
             <apply iconOrder="129" />
-        </switch>
-        <switch>
-            <!--			<switch shield="white_gray_square_shield">
-				<case minzoom="16" tag="amenity" value="drinking_water" icon="amenity_drinking_water"/>
-				<case minzoom="15" tag="man_made" value="water_well" icon="man_made_water_well"/>
-				<apply_if nightMode="true" shield="gray_gray_square_shield"/>
-			</switch>-->
-            <case minzoom="16" tag="man_made" value="water_well" icon="topo_water_well" shield="topo_water_well_shield" iconOrder="91" />
-            <case minzoom="14" tag="natural" value="spring" icon="topo_spring" shield="topo_spring_shield" iconVisibleSize="14" iconOrder="40" />
-            <case minzoom="16" tag="amenity" value="drinking_water" icon="topo_drinking_water" shield="topo_drinking_water_shield" iconVisibleSize="14" iconOrder="40" />
-            <!--			<case minzoom="14" tag="natural" value="hot_spring" icon="natural_hot_spring" shield="white_blue_square_shield"/>
-			<case minzoom="14" tag="natural" value="geyser" icon="natural_geyser" shield="white_blue_square_shield">
-			</case>-->
-            <apply_if maxzoom="16" additional="drinking_water=no" icon="" />
-            <apply_if minzoom="16" additional="drinking_water=yes" icon_2="topo_drinking_water_yes_map" />
-            <apply_if minzoom="16" additional="drinking_water=no" icon_2="topo_drinking_water_no_map" />
         </switch>
         <case minzoom="15" tag="waterway" value="waterfall" icon="topo_waterfall" shield="topo_waterfall_shield" />
         <switch minzoom="17" tag="natural" value="tree" iconOrder="128">
@@ -2012,12 +1969,7 @@
                         <case minzoom="9" maxzoom="11" strokeWidth_2="1.5" pathEffect_2="2_3" />
                         <case minzoom="11" strokeWidth_2="1.5" pathEffect_2="3_5" />
                         <apply color="#E4FDFF" color_2="#99ccff" />
-                        <!--						<apply_if minzoom="7" shader="topo_glacier"/>-->
                     </switch>
-                    <!--		<case minzoom="10" tag="natural" value="heath" color="$grassColor">
-						<apply_if minzoom="14" shader="topo_heath"/>
-						<apply_if nightMode="true" shader=""/>
-					</case>-->
                     <case minzoom="6" tag="landuse" value="residential" color="$landuseResidentialDefaultColor">
                         <apply>
                             <switch minzoom="11" additional="residential=rural">
@@ -2099,9 +2051,6 @@
                         <case additional="resource=salt" shader="topo_quarry_salt" color_2="#1a7fc7" />
                         <case color="#3398725D" />
                     </case>
-                    <!--				<case minzoom="12" tag="historic" value="quarry" shader="quarry3_abandoned">
-						<apply_if nightMode="true" shader="quarry3_abandoned_night"/>
-					</case>-->
                     <switch minzoom="11" color="#d4aaaa" color_2="#000000" strokeWidth_2="0.4">
                         <case tag="railway" value="station" />
                         <case tag="aerialway" value="station" />
