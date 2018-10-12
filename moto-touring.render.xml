@@ -134,31 +134,21 @@
         <case attrColorValue="#be4892" />
     </renderingAttribute>
     <!-- Motorway -->
-    <renderingAttribute name="motorwayRoadColor" attrColorValue="#FB5734">
-        <case additional="bridge=yes" shadowColor="#eeeeee" />
+    <renderingAttribute name="motorwayRoadColor">
+        <case attrColorValue="#ff99ef" />
     </renderingAttribute>
-    
-    
     <renderingAttribute name="motorwayRoadShadowColor">
-        <case additional="construction=yes" attrColorValue="$null" />
-        <case additional="bridge=yes" attrColorValue="#eeeeee" />
-        <case additional="motorroad=yes" attrColorValue="$accessPrivateColor" />
         <case attrColorValue="$accessPrivateColor" />
-        <apply_if maxzoom="6" attrColorValue="#666666" />
     </renderingAttribute>
     <!-- Trunk  -->
     <renderingAttribute name="trunkRoadColor">
-        <case additional="bridge=yes" attrColorValue="#eeeeee" />
-        <case attrColorValue="#FB5734" />
+        <case attrColorValue="#d684ff" />
     </renderingAttribute>
     <renderingAttribute name="trunkRoadShadowColor">
         <case attrColorValue="#000000" />
-        <apply_if maxzoom="6" attrColorValue="#666666" />
-        <apply_if additional="construction=yes" attrColorValue="$null" />
     </renderingAttribute>
     <!-- Primary  -->
     <renderingAttribute name="primaryRoadColor">
-        <case additional="bridge=yes" attrColorValue="#eeeeee" />
         <case attrColorValue="#FF9067" />
     </renderingAttribute>
     <renderingAttribute name="primaryRoadShadowColor">
@@ -166,7 +156,6 @@
     </renderingAttribute>
     <!-- Secondary  -->
     <renderingAttribute name="secondaryRoadColor">
-        <case additional="bridge=yes" attrColorValue="#eeeeee" />
         <case attrColorValue="#FFA14B" />
     </renderingAttribute>
     <renderingAttribute name="secondaryRoadShadowColor">
@@ -174,7 +163,6 @@
     </renderingAttribute>
     <!-- Tertiary  -->
     <renderingAttribute name="tertiaryRoadColor">
-        <case additional="bridge=yes" attrColorValue="#eeeeee" />
         <case attrColorValue="#FFC073" />
     </renderingAttribute>
     <renderingAttribute name="tertiaryRoadShadowColor">
@@ -193,17 +181,13 @@
     </renderingAttribute>
     <!-- Prefilter service and remove death ends-->
     <renderingAttribute name="serviceRoadColor">
-        <case attrColorValue="#ececec">
-            <apply_if additional="construction=yes" attrColorValue="#cccccc" />
-        </case>
+        <case attrColorValue="#ececec" />
     </renderingAttribute>
     <renderingAttribute name="serviceRoadShadowColor">
         <case attrColorValue="#444444" />
     </renderingAttribute>
     <renderingAttribute name="serviceDrivewayRoadColor">
-        <case attrColorValue="#e0e0e0">
-            <apply_if additional="construction=yes" attrColorValue="#cccccc" />
-        </case>
+        <case attrColorValue="#e0e0e0" />
     </renderingAttribute>
     <renderingAttribute name="serviceDrivewayRoadShadowColor">
         <case attrColorValue="#777777" />
@@ -244,9 +228,6 @@
     </renderingAttribute>
     <renderingAttribute name="primaryResidentialHighwayAreaShadowColor">
         <case attrColorValue="#000000" />
-    </renderingAttribute>
-    <renderingAttribute name="constructionHighwayBGColor">
-        <case attrColorValue="#ffffff" />
     </renderingAttribute>
     <renderingAttribute name="pierColor">
         <case attrColorValue="#ffffff" />
@@ -314,23 +295,12 @@
             <apply_if noPolygons="true" attrColorValue="#AAFFEAD6" />
         </case>
     </renderingAttribute>
-    <renderingAttribute name="buildingColor">
-        <case minzoom="14" maxzoom="15" attrColorValue="#555555" />
-        <case minzoom="16" attrColorValue="#222222" />
-    </renderingAttribute>
-    <renderingAttribute name="buildingIndustrialColor">
-        <case minzoom="15" maxzoom="15" attrColorValue="#aaaaaa" />
-        <case minzoom="16" attrColorValue="#777777" />
-    </renderingAttribute>
-    <renderingAttribute name="buildingAbandonedColor">
-        <case attrColorValue="#77B0B0B0" />
-    </renderingAttribute>
-    <renderingAttribute name="buildingAbandonedStrokeColor">
-        <case attrColorValue="#000000" />
-    </renderingAttribute>
+
+<!-- Residential = Populated: Make it grey  -->
     <renderingAttribute name="landuseResidentialDefaultColor">
         <case attrColorValue="#BBBBBB" />
     </renderingAttribute>
+    
     <renderingAttribute name="landuseResidentialRuralLowZoomColor">
         <case attrColorValue="#666666" />
     </renderingAttribute>
@@ -412,12 +382,6 @@
     <renderingAttribute name="motorwayTextColor">
         <case attrColorValue="$black" />
     </renderingAttribute>
-    <renderingAttribute name="trunkTextColor">
-        <case attrColorValue="$black" />
-    </renderingAttribute>
-    <renderingAttribute name="primaryTextColor">
-        <case attrColorValue="$black" />
-    </renderingAttribute>
     <renderingAttribute name="boundaryColorInner">
         <case minzoom="12" attrColorValue="#aa0002B4" />
         <case attrColorValue="#990002B4" />
@@ -428,39 +392,7 @@
     </renderingAttribute>
     <renderingConstant name="boundaryNationalParkColor" value="#a0800080" />
     <renderingConstant name="boundaryNationalParkColor2" value="#5009dd09" />
-    <renderingAttribute name="iwnColor">
-        <case attrColorValue="#d94545" />
-    </renderingAttribute>
-    <renderingAttribute name="nwnColor">
-        <case attrColorValue="#0000ff" />
-    </renderingAttribute>
-    <renderingAttribute name="rwnColor">
-        <case attrColorValue="#DFC200" />
-    </renderingAttribute>
-    <renderingAttribute name="rwnTextColor">
-        <case attrColorValue="#988400" />
-    </renderingAttribute>
-    <renderingAttribute name="lwnColor">
-        <case attrColorValue="#00D783" />
-    </renderingAttribute>
-    <renderingAttribute name="routeBusColor">
-        <case attrColorValue="#ff0000" />
-    </renderingAttribute>
-    <renderingAttribute name="routeShareTaxiColor">
-        <case attrColorValue="#f620cb" />
-    </renderingAttribute>
-    <renderingAttribute name="routeTrolleybusColor">
-        <case attrColorValue="#920071" />
-    </renderingAttribute>
-    <renderingAttribute name="routeTramColor">
-        <case attrColorValue="#0000ff" />
-    </renderingAttribute>
-    <renderingAttribute name="routeTrainColor">
-        <case attrColorValue="#8c3f01" />
-    </renderingAttribute>
-    <renderingAttribute name="routeLightrailColor">
-        <case attrColorValue="#009100" />
-    </renderingAttribute>
+
     <renderingAttribute name="textOrderPopulation">
         <case additional="population_rounded=1500000000" attrIntValue="6" />
         <case additional="population_rounded=400000000" attrIntValue="7" />
@@ -681,7 +613,6 @@
                         <apply_if layer="-1" order="20" />
                     </case>
                     <case tag="highway" value="raceway" />
-                    <apply_if maxzoom="13" additional="construction=yes" order="-1" />
                 </switch>
                 <case tag="railway" value="subway" layer="-1" order="-1" />
                 <case tag="railway" value="abandoned" order="24" />
@@ -765,46 +696,12 @@
 
 
     <text>
-        <switch minzoom="14" textHaloRadius="$textHaloRadiusDay" textOnPath="true" nameTag="">
-            <case tag="area:highway" value="motorway" textColor="$motorwayTextColor" textHaloColor="$motorwayRoadColor" textOrder="50" textWrapWidth="25" />
-            <case tag="highway" value="motorway" textColor="$motorwayTextColor" textHaloColor="$motorwayRoadColor" textOrder="50" />
-            <case tag="highway" value="motorway_link" textColor="$motorwayTextColor" textHaloColor="$motorwayRoadColor" textOrder="51" />
-            <case tag="area:highway" value="trunk" textColor="$trunkTextColor" textHaloColor="$trunkRoadColor" textOrder="53" textWrapWidth="25" />
-            <case tag="highway" value="trunk" textColor="$trunkTextColor" textHaloColor="$trunkRoadColor" textOrder="53" />
-            <case tag="highway" value="trunk_link" textColor="$trunkTextColor" textHaloColor="$trunkRoadColor" textOrder="54" />
-            <case tag="highway" value="primary" textColor="$primaryTextColor" textHaloColor="$primaryRoadColor" textOrder="56" />
-            <case tag="area:highway" value="primary" textColor="$primaryTextColor" textHaloColor="$primaryRoadColor" textOrder="57" textWrapWidth="25" />
-            <case tag="highway" value="primary_link" textColor="$primaryTextColor" textHaloColor="$primaryRoadColor" textOrder="58" />
-            <apply>
-                <case maxzoom="14" textSize="13" />
-                <case maxzoom="15" textSize="14" />
-                <case maxzoom="16" textSize="15" />
-                <case maxzoom="17" textSize="17" />
-                <case minzoom="18" textSize="19" />
-            </apply>
-        </switch>
-        <switch minzoom="14">
+        <switch minzoom="6">
             <switch nameTag="">
-                <case tag="highway" value="raceway" textOrder="192" />
-                <apply maxzoom="14" textSize="12" />
+                <case tag="highway" value="raceway" textOrder="192" textSize="12" />
             </switch>
-            <switch>
-                <case tag="highway" value="track" nameTag="" textOrder="188" />
-                <case tag="highway" value="track" nameTag="ref" textOrder="188" />
-                <apply>
-                    <case nameTag="" nameTag2="ref" />
-                    <case nameTag="ref" />
-                    <apply maxzoom="14" textSize="12" />
-                </apply>
-            </switch>
-            <apply textColor="#000000" textHaloRadius="$highwayTrackTextHaloRadiusDay" textHaloColor="$highwayTrackTextHaloColorDay" textOnPath="true" />
-            <apply_if minzoom="15">
-                <case maxzoom="15" textSize="13" />
-                <case maxzoom="16" textSize="14" />
-                <case maxzoom="17" textSize="16" />
-                <case minzoom="18" textSize="18" />
-            </apply_if>
         </switch>
+        
         <case minzoom="16" tag="man_made" value="reinforced_slope" color="#d6d6d6" />
         <case minzoom="18" tag="man_made" value="pipeline" textSize="10" textColor="#333333" textHaloRadius="2" textHaloColor="#ccffffff" textOnPath="true" textWrapWidth="30" textOrder="230" />
         <switch minzoom="3">
@@ -1057,14 +954,6 @@
                 <case additional="population_rounded=100" textOrder="43" />
             </apply_if>
         </switch>
-        <switch minzoom="17">
-            <case tag="highway" value="traffic_signals" textOrder="141" />
-            <case tag="natural" value="sinkhole" />
-            <case tag="waterway" value="rapids" textOnPath="true" />
-            <case tag="ford" value="yes" />
-            <case tag="ford" value="stepping_stones" />
-            <apply textSize="12" textDy="7" textColor="#222222" textHaloRadius="$textHaloRadiusDay" textHaloColor="#ffffff" textWrapWidth="16" textMinDistance="10" />
-        </switch>
         <switch tag="contour" value="elevation" textOnPath="false" textBold="true" textOrder="255" textHaloColor="#bbffffff" textHaloRadius="1" intersectionMargin="20">
             <case minzoom="13" contourLines="11" />
             <case minzoom="13" contourLines="12" />
@@ -1080,6 +969,8 @@
                 <case additional="contourtype=100m" textColor="#444444" textSize="13" textMinDistance="200" />
             </apply>
         </switch>
+        
+        
         <switch>
             <switch textColor="#654321" textWrapWidth="25" textHaloColor="#ffffff" textHaloRadius="$textHaloRadiusDay" textItalic="true" textBold="true">
                 <switch>
@@ -1141,6 +1032,8 @@
                     <apply_if additional="ele_limit=9000" textOrder="67" />
                 </switch>
             </switch>
+            
+            
             <switch>
                 <case minzoom="13" tag="natural" value="glacier" textOrder="81" />
                 <case minzoom="14" tag="natural" value="scree" textOrder="82" />
@@ -1392,62 +1285,8 @@
                     <case minzoom="15" tag="landuse" value="brownfield" />
                     <apply textColor="$landuseManmadeFadedTextColorDay" />
                 </switch>
-                <case minzoom="17" tag="amenity" value="kindergarten" textOrder="133" />
-                <case minzoom="17" tag="amenity" value="school" textOrder="133" />
-                <case minzoom="17" tag="amenity" value="college" textOrder="133" />
-                <case minzoom="17" tag="amenity" value="university" textOrder="133" />
-                <case minzoom="17" tag="amenity" value="library" />
-                <case minzoom="17" tag="amenity" value="cinema" textOrder="132" />
-                <case minzoom="17" tag="amenity" value="theatre" textOrder="132" />
-                <case minzoom="17" tag="amenity" value="social_facility" />
-                <!--				<apply_if engine_v1="true" textDy="9"/>-->
             </switch>
-            <switch textSize="11" nameTag="" textColor="#444444" textHaloRadius="$textHaloRadiusDay" textHaloColor="$defaultTextHaloColorDay" textWrapWidth="25" textOrder="162">
-                <case minzoom="16" tag="aerialway" value="station" nameTag="" textOrder="101" />
-                <case minzoom="17" tag="man_made" value="windmill" textSize="12" />
-                <case minzoom="17" tag="man_made" value="watermill" textSize="12" />
-                <case minzoom="19" tag="man_made" value="water_tap" />
-                <case minzoom="17" tag="man_made" value="tower" nameTag="" />
-                <case minzoom="17" tag="man_made" value="antenna" nameTag="" />
-                <case minzoom="17" tag="man_made" value="mast" nameTag="" />
-                <case minzoom="17" tag="man_made" value="monitoring_station" />
-                <case minzoom="16" tag="man_made" value="petroleum_well" />
-                <case minzoom="18" tag="man_made" value="crane" />
-                <case minzoom="18" tag="man_made" value="ventilation_shaft" />
-                <case minzoom="18" tag="man_made" value="pumping_station" />
-                <case minzoom="16" tag="man_made" value="adit" />
-                <case minzoom="17" tag="man_made" value="kiln" />
-                <case minzoom="17" tag="man_made" value="water_tower" />
-                <case minzoom="16" tag="man_made" value="mineshaft" />
-                <case minzoom="16" tag="amenity" value="hunting_stand" />
-                <case minzoom="17" tag="man_made" value="storage_tank" />
-                <case minzoom="17" tag="man_made" value="silo" />
-                <case minzoom="17" tag="man_made" value="bunker_silo" />
-                <case minzoom="17" tag="man_made" value="reservoir_covered" />
-                <case minzoom="15" tag="man_made" value="observatory" />
-                <case minzoom="15" tag="man_made" value="telescope" />
-                <case minzoom="17" tag="man_made" value="survey_point" />
-                <case minzoom="17" tag="man_made" value="cairn" />
-                <case minzoom="19" tag="man_made" value="street_cabinet" />
-                <case minzoom="17" tag="man_made" value="cross" />
-                <case minzoom="17" tag="aerialway" value="pylon" />
-                <case minzoom="15" tag="harbour" value="yes" textSize="12" />
-                <case minzoom="17" tag="barrier" value="" nameTag="ref" />
-                <case minzoom="17" tag="barrier" value="" nameTag="" nameTag2="ref" />
-                <case minzoom="17" tag="military" value="checkpoint" nameTag="ref" />
-                <case minzoom="17" tag="military" value="checkpoint" nameTag="" nameTag2="ref" />
-                <apply_if engine_v1="true" textDy="1" />
-            </switch>
-            <case minzoom="16" tag="man_made" value="pier" textSize="11" textColor="#1f62ae" textHaloRadius="$textHaloRadiusDay" textHaloColor="#ccffffff" textOnPath="true" textWrapWidth="30" textOrder="175" />
-            <switch minzoom="13">
-                <case tag="railway" value="station" nameTag="" textSize="11" textOrder="49" textColor="#000000" />
-                <case minzoom="14" tag="railway" value="yard" nameTag="" textSize="11" textOrder="49" textColor="#000000" />
-                <case tag="railway" value="halt" nameTag="" textSize="11" textOrder="50" textColor="#000000" />
-                <case minzoom="16" tag="railway" value="tram_stop" nameTag="" textSize="11" textOrder="50" textColor="#000000" />
-                <case minzoom="16" tag="abandoned:railway" value="station" textOrder="227" textColor="#8a8a8a" />
-                <apply textWrapWidth="25" textHaloRadius="$textHaloRadiusDay" textBold="true" />
-                <apply_if minzoom="15" textSize="13" />
-            </switch>
+            
             <case minzoom="15" tag="landuse" value="military" />
             <case minzoom="15" tag="military" value="danger_area" />
             <apply textSize="12" nameTag="" textColor="#990d2a" textHaloColor="#eeffffff" textHaloRadius="$textHaloRadiusDay" textWrapWidth="20" textOrder="145" />
@@ -2205,29 +2044,23 @@
         <switch>
             <switch minzoom="6">
 				<case tag="highway" value="motorway" color="$motorwayRoadColor" color__2="$motorwayRoadShadowColor" shadowColor="$motorwayRoadShadowColor">
-					<apply_if maxzoom="6" strokeWidth="0.5" />
+<!--					<apply_if maxzoom="6" strokeWidth="0.5" />
 					<apply_if maxzoom="8" strokeWidth="1:1" />
 					<apply_if maxzoom="9" strokeWidth="1.2:1.2" />
 					<apply_if maxzoom="10" strokeWidth="1.6:1.6" />
 					<apply_if maxzoom="11" strokeWidth="1.8:1.8" />
 					<apply_if maxzoom="12" strokeWidth="2.2:2.2" />
-					<apply_if maxzoom="13" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
+					<apply_if maxzoom="13" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />-->
 				</case>
 				<case tag="highway" value="trunk" color="$trunkRoadColor" color__2="$trunkRoadShadowColor" shadowColor="$trunkRoadShadowColor">
-					<apply_if maxzoom="6" strokeWidth="0.5" />
+<!--					<apply_if maxzoom="6" strokeWidth="0.5" />
 					<apply_if maxzoom="8" strokeWidth="1:1" />
 					<apply_if maxzoom="9" strokeWidth="1.2:1.2" />
 					<apply_if maxzoom="10" strokeWidth="1.6:1.6" />
 					<apply_if maxzoom="11" strokeWidth="1.8:1.8" />
 					<apply_if maxzoom="12" strokeWidth="2.2:2.2" />
-					<apply_if maxzoom="13" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
+					<apply_if maxzoom="13" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />-->
 				</case>
-				<apply>
-					<switch>
-						<case maxzoom="6" shadowRadius="1" />
-						<case minzoom="7" shadowRadius="$highwayShadowRadius" />
-					</switch>
-				</apply>
 				<switch shadowRadius=":1">
 					<case tag="highway" value="motorway_link" color="$motorwayRoadColor" shadowColor="$motorwayRoadShadowColor" />
 					<case tag="highway" value="trunk_link" color="$trunkRoadColor" shadowColor="$trunkRoadShadowColor" />
