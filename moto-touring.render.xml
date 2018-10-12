@@ -2039,8 +2039,8 @@
 
 
     <line>
-        <case minzoom="1" tag="natural" value="coastline_broken" color="#111111" strokeWidth="1:1" />
-        <case minzoom="5" tag="natural" value="coastline_line" color="#4580cf" strokeWidth="1:1" />
+        <case minzoom="1" tag="natural" value="coastline_broken" color="#111111" strokeWidth=":1" />
+        <case minzoom="5" tag="natural" value="coastline_line" color="#4580cf" strokeWidth=":1" />
         <switch>
             <switch minzoom="6">
 				<case tag="highway" value="motorway" color="$motorwayRoadColor" color__2="$motorwayRoadShadowColor" shadowColor="$motorwayRoadShadowColor" strokeWidth="3">
