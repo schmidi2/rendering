@@ -172,9 +172,9 @@
     <renderingAttribute name="unclassifiedRoadColor">
         <case attrColorValue="#ff0000" />
     </renderingAttribute>
-    <!-- Prefilter residential and remove death ends-->
+    <!-- Remove residential or show them grey and remove death ends-->
     <renderingAttribute name="residentialRoadColor">
-        <case attrColorValue="#ff3f3f" />
+        <case attrColorValue="#7c7b7b" />
     </renderingAttribute>
     <renderingAttribute name="residentialRoadShadowColor">
         <case attrColorValue="#333333" />
@@ -213,15 +213,6 @@
     </renderingAttribute>
     <renderingAttribute name="trackColor">
         <case attrColorValue="#a84e00" />
-    </renderingAttribute>
-    <renderingConstant name="trackStrokeWidth" value="1:1" />
-    <renderingConstant name="trackLowZoomStrokeWidth" value="1:0.5" />
-    <renderingConstant name="trackBridgeWidth" value="6:3.5" />
-    <renderingConstant name="trackBridgeInnerWidth" value="4:3" />
-    <renderingConstant name="trackTunnelPathEffect" value="3_3" />
-    <renderingConstant name="trackPathEffect" value="" />
-    <renderingAttribute name="trackPathHighwayOnewayArrowsColor">
-        <case attrColorValue="#000000" />
     </renderingAttribute>
     <renderingAttribute name="primaryResidentialHighwayAreaColor">
         <case attrColorValue="#E9E9E9" />
@@ -1638,12 +1629,6 @@
                 <apply iconVisibleSize="14" intersectionSizeFactor="0.9" />
             </switch>
         </switch>
-        <case minzoom="17" tag="highway" value="traffic_signals" icon="highway_traffic_signals_map" shield="traffic_signals_shield" />
-        <case minzoom="17" tag="highway" value="crossing" icon="highway_crossing_map" iconVisibleSize="14" shield="highway_crossing_shield">
-            <case additional="crossing=uncontrolled" icon="crossing_uncontrolled_map" />
-            <case additional="crossing=traffic_signals" icon="crossing_traffic_signals_map" shield="highway_crossing_traffic_signals_shield" />
-            <case additional="crossing=unmarked" icon="crossing_unmarked_map" />
-        </case>
         <switch iconOrder="71">
             <case minzoom="13" tag="building" value="tower" icon="topo_tower" shield="topo_tower_shield" iconVisibleSize="16" />
             <case minzoom="16" tag="man_made" value="antenna" icon="topo_mast" shield="topo_tower_shield" />
@@ -2032,6 +2017,13 @@
  10km 10
   5km 11
   2km 12 Unlassified
+
+connect together streets with are splitted 
+tracktype grade1 -> unclassified (asphalt)
+service/residental -> unclassified if they connect to another not-residental/not-service street (or to the same but far away)
+short <500m unclassified roads to service/residental
+deathend -> add key
+
 -->
             <switch minzoom="7">
                 <case tag="highway" value="primary" color="$primaryRoadColor" color_2="#000000" shadowColor="$primaryRoadShadowColor" strokeWidth="2.5:2.5" cap="ROUND">
@@ -2057,13 +2049,21 @@
                 </case>
             </switch>
             <switch minzoom="10">
-                <case tag="highway" value="unclassified" color="$unclassifiedRoadColor" color_2="#000000" shadowColor="$residentialRoadShadowColor" shadowRadius="1" strokeWidth="1:1" strokeWidth_2="2.5:2.5" cap="ROUND">
+                <case tag="highway" value="unclassified" color="$unclassifiedRoadColor" color_2="#000000" shadowColor="$residentialRoadShadowColor" shadowRadius="1" strokeWidth="2.5:2.5" strokeWidth_2="1:1"  strokeWidth_3="4.5:4.5" cap="ROUND">
                     <!--					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
 					<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5" strokeWidth_3="4.5:4.5" />
 					<case minzoom="17" maxzoom="17" strokeWidth="6:6" strokeWidth_3="6:6" />
 					<case minzoom="18" maxzoom="18" strokeWidth="9:9" strokeWidth_3="9:9" />
 					<case minzoom="19" strokeWidth="10.5:10.5" strokeWidth_3="10.5:10.5" />-->
                 </case>
+                <case tag="highway" value="track" color="$trackColor" strokeWidth="1">
+					<case tag="tracktype" value="grade2" pathEffect="5_5" />
+					<case tag="tracktype" value="grade3" pathEffect="4_5" />
+					<case tag="tracktype" value="grade4" pathEffect="2_5" />
+					<case tag="tracktype" value="grade5" pathEffect="1_5" />
+                 </case>
+           </switch>
+            <switch minzoom="12">
                 <case tag="highway" value="residential" color="$residentialRoadColor" color_2="#000000" shadowColor="$residentialRoadShadowColor" strokeWidth="1:1" strokeWidth_3="2.5:2.5" cap="ROUND">
                     <!--					<case minzoom="15" maxzoom="15" strokeWidth="2.5:2.5" strokeWidth_3="2.5:2.5" />
 					<case minzoom="16" maxzoom="16" strokeWidth="4.5:4.5" strokeWidth_3="4.5:4.5" />
